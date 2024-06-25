@@ -112,7 +112,7 @@ fun main() {
     val stringMessage = String.format("String Val %s", stringVal)
     println(stringMessage)
 
-    val totalValMessage = String.format("Integer: %d, Double: %.2f, String: %s",intVal, doubleVal, stringVal)
+    val totalValMessage = String.format("Integer: %d, Double: %.2f, String: %s", intVal, doubleVal, stringVal)
     println(totalValMessage)
 
     // Formatlamayı bir dile göre yapmak istersek önce dili sonrasında ise %, ü kullanmamız lazım
@@ -121,7 +121,7 @@ fun main() {
     println(formattedPrice) // US formatında 1,234,567.89
 
     // TR locale oluşturma
-    val localeTR = Locale("tr","TR")
+    val localeTR = Locale("tr", "TR")
     val formattedTRPrice = String.format(localeTR, "%,.2f", price)
     println(formattedTRPrice)   // 1.234.567,89
 }

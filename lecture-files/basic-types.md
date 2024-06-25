@@ -3,7 +3,8 @@
 Aynı işi yapan Java ve Kotlin kodlarının bytecode karşılıkları aynıdır. Yani class olarak tanımalanan Int, Boolean, Char
 gibi tipler compile zamanında bytecode olarak Java'daki primitive tiplere karşılık gelen bytecode'lar ile aynı gelir.
 
-`val` oluşturulduktan sonra tekrardan değer ataması yapılamayan veri türüdür. `val` **immutable** değilidr, **read only**
+`val` oluşturulduktan sonra tekrardan değer ataması yapılamayan veri türüdür. `val` **immutable** değilidr, **read only
+**
 dir. **Immutable** oluşturulduktan sonra değiştirilemeyen nesne/değişkendir. **Read only** de ilk oluşturulduktan sonra
 yeniden
 atama yapılamaz. **Immutable** da ise nesnenin durumunu değiştirmenin bir yolu yoktur.
@@ -71,12 +72,3 @@ burada age için bir alan ve bu age'in değeri için (20) başka bir alan kullan
 Eğer değişkenimiz bir primitive type değilse (nullable int, object ..) değişkenimiz yine **stack'de** tutulur ama bu
 sefer içerisindeki değer
 **heap'de** tutulur.
-
-[1-Numbers](../src/basics/1-Numbers.kt) <br>
-[2-TypeConversion](../src/basics/2-TypeConversion.kt) <br>
-[3-Characters](../src/basics/3-Characters.kt) <br>
-[4-Boolean](../src/basics/4-Boolean.kt) <br>
-[5-Arrays](../src/basics/5-Arrays.kt) <br>
-[6-String](../src/basics/6-String.kt) <br>
-[6-Range](../src/basics/7-Range.kt) <br>
-[8-Nullables](../src/basics/8-Nullables.kt)
