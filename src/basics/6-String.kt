@@ -124,4 +124,8 @@ fun main() {
     val localeTR = Locale("tr", "TR")
     val formattedTRPrice = String.format(localeTR, "%,.2f", price)
     println(formattedTRPrice)   // 1.234.567,89
+
+    // String içerisinde assigment yapılamaz. Sadece expression bulunabilir.
+    val assigment = 20
+    // val assigmentString = "assigment + 10 = ${assigment += 10}"  // hata verir.
 }
