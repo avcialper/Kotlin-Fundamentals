@@ -14,7 +14,10 @@
     * [Range](./src/basics/7-Range.kt)
     * [Nullable](./src/basics/8-Nullables.kt)
 2. Control Flows
-    * [Operators](./src/basics/controlflows/1-Operators.kt)
-    * [Operator Overloading](./src/basics/controlflows/2-OperatorOverloading.kt)
-    * [If Else](./src/basics/controlflows/3-ControlFlow-If-Else.kt)
-    * [When](./src/basics/controlflows/4-ControlFlow-When.kt)
+    * [Operators](./src/basics/controlflow/1-Operators.kt)
+    * [Operator Overloading](./src/basics/controlflow/2-OperatorOverloading.kt)
+    * [If Else](./src/basics/controlflow/3-If-Else.kt)
+    * [When](./src/basics/controlflow/4-When.kt)
+3. Loops
+    * [For](./src/basics/loop/1-For.kt)
+    * [While](./src/basics/loop/2-While.kt)

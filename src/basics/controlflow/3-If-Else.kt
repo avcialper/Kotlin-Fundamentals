@@ -1,4 +1,4 @@
-package basics.controlflows
+package basics.controlflow
 
 import java.io.IOException
 
