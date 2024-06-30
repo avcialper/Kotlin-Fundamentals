@@ -38,7 +38,7 @@ fun main() {
      *
      *      Bir değişkenin nullable olarak tanımlanması onun primitive olmasını engeller. Referans olarak tutulur
      *      val number: Int = 500             // primitive
-     *      val nullableNumber: Int? = 500    // class
+     *      val nullableNumber: Int? = 500    // class, reference
      *
      *      Bu iki değeri == ile karşılaştırırsak true değerini elde ederiz. Eğer === ile karşılaştırırsak false cevabını
      *      alırız. Çünkü === ile adres katşılaştırması yapıyoruz. Bir adreste sadece bir değer olabilir.

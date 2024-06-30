@@ -4,7 +4,8 @@
 
 <h2>Concepts</h2>
 
-1. Types
+1. Types <br>
+   [Basics Types Notes](./lecture-files/basic-types.md)
     * [Numbers](./src/basics/1-Numbers.kt)
     * [Type Conversion](./src/basics/2-TypeConversion.kt)
     * [Characters](./src/basics/3-Characters.kt)
@@ -21,3 +22,9 @@
 3. Loops
     * [For](./src/basics/loop/1-For.kt)
     * [While](./src/basics/loop/2-While.kt)
+4. Functions
+    * [Basics](./src/functions/1-Basics.kt)
+    * [Infix Function](./src/functions/2-InfixFunction.kt)
+    * [Function Scope](./src/functions/3-FunctionScope.kt)
+    * [Extension Function](./src/functions/4-ExtensionFunction.kt)
+    * [Higher Order Function](./src/functions/5-HigherOrderFunction.kt)

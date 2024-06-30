@@ -52,6 +52,9 @@ fun main() {
     /**
      *      CharRange, IntRange ve LongRange isimlerinde özel range'ler vardır. Progression olarak adlandırılır.
      *      Diğer tipler bulumaz.
+     *
+     *      Float ve Double da virgülden sonra artış miktari bilinmediği için, boolean yalnızca 2 değer aldığı için.
+     *
      *      Bu durumda; first, last, step, count gibi ek bilgiler alınabilir.
      *      Iterable<N> interface'ini implement etmişlerdir. O sebeple map filter gibi fonksiyonları kullanabilirler.
      */

@@ -61,7 +61,7 @@ fun main() {
     val sampleGrade = 40
     /**
      *      compareTo
-     *      grade değeri sampleGrade değerine;
+     *      grade değeri sampleGrade değerinden;
      *      büyükse -> 1
      *      eşitse -> 0
      *      küçükse -> -1
@@ -99,8 +99,8 @@ fun main() {
 
     numbOne.inc()           // ++numbOne
     numbOne.dec()           // --numbOne
-    numbOne.unaryPlus()     // +numbOne, yeniden atama yapmaz
-    numbOne.unaryMinus()    // -numbOne, yeniden atama yapmaz
+    numbOne.unaryPlus()     // +numbOne; yeniden atama yapmaz istenirse bir eşitlik ile başka bir değere atanabilir.
+    numbOne.unaryMinus()    // -numbOne; yeniden atama yapmaz
 
     /**
      *      == değer kontrolü yapar

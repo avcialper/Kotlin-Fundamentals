@@ -30,6 +30,7 @@ fun main() {
      *      değiştiremez ya da yerni bir değer set edilemez. String üzerinde yapılan bütün işlemler
      *      yeni bir String object dönecektir.
      *      String'in ilk hali değişmeyecektir.
+     *      Aynı Array'lerdeki gibi.
      */
 
     /**
@@ -38,6 +39,7 @@ fun main() {
      */
 
     val stringNumbers = "numbers" + (4 + 2 + 8) // Çıktı numbers14
+    val stringNumbers2 = "numbers" + 4 + 2 + 8  // Çıktı numbers428, parantez içi öncelikler dikkate alınmalı
     // val stringNumbers2 = (4 + 2 + 8) + "numbers"    // Hata verir
 
     /**

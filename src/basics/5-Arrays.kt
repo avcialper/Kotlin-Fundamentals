@@ -6,7 +6,7 @@ fun main() {
      *      Aynı türden ya da belirtilen türün alt türlerinden, sabit sayıda veri tutan bir veri yapısıdır.
      *      En sık kullanılan versiyonu Object-Type Array'lerdir. Array sınıfı ile temsil edilirler.
      *
-     *      Eğer primitive tipleri Object-Type Array olarak kullanırsanız Boxed kullanım yappmış olursunuz.
+     *      Eğer primitive tipleri Object-Type Array olarak kullanırsanız Boxed kullanım yapmış olursunuz.
      *      Bu da performansa etki eder. Eğer sadece primitive'lerden oluşan array'ler oluşturacaksanız,
      *      bu durumda Primitive-Type Array'ler kullanın.
      *
@@ -30,7 +30,7 @@ fun main() {
     println(arrayOfNulls.joinToString())    // Array'i string formatında yazmak istenirse joinToString kullanılır
 
     /**
-     *      Empty Array'ler istenilen yere direkt olarak veri eklenemez
+     *      Empty Array'ler istenilen yere direkt olarak veri eklenemez. İçerisinde kaç eleman barındırdığı bilinmediği için.
      */
 
     val emptyArray = emptyArray<String>()
@@ -61,7 +61,7 @@ fun main() {
     println(carNamesMini.joinToString())
 
     /**
-     *      ByteArray, ShortArray, IntArray, LongArray, DoubleArray, FloatArray gibi ya da bunların undigned halleri
+     *      ByteArray, ShortArray, IntArray, LongArray, DoubleArray, FloatArray gibi ya da bunların unsigned halleri
      *      primitive array tanımlamaları da yapılabilir.
      *
      *      .toTypedArray() fınksiyonu ile Objet-Type bir array Primitive-Type bir array'e dönüştürülür. Buradki typed
@@ -80,11 +80,12 @@ fun main() {
     println("First CharOf Countries: ${firstCharOfCountries.get(1)}")
 
     // arrayOf ile tanımlanan array bir object array, bunu toCharArray() fonksiyonu ile primitive array yapabiliyoruz.
+    // Bu kullanım bize performans açısından artı sağlamaktadır.
     val charTypedArray: CharArray = arrayOf('K', 'O', 'T', 'L', 'I').toCharArray()
 
     /**
      *      val ile tanımlanmış bir array'in herhahngi bir indexindeki değer değiştirilebilir.
-     *      val indexdeki değerlerindeğişimine karışmaz.
+     *      val indexdeki değerlerin değişimine karışmaz.
      *      Ancak ilgili diziyi başka bir dizi ile eşitlememize izin verilmez.
      *      Bunun için tanımlamayı var ile değiştirmemiz gerekir.
      */
@@ -92,6 +93,7 @@ fun main() {
     val awesomeArray = arrayOfNulls<String>(5)
     awesomeArray[0] = "kotlin"
     //awesomeArray = arrayOf("foo", "boo", "goo", "loo")    // Çalışmaz
+    //awesomeArray += "java"    // Çalışmaz
 
     /**
      *      Array'in size'i dışına çıkıyorsanız (boyut dışına), IndexOutOfBound hatası alırsınız.
@@ -126,18 +128,21 @@ fun main() {
     twoDArray[0][0] = 2
 
     println(simpleArray.joinToString())
-    println(twoDArray.contentDeepToString())
+    println(twoDArray.contentDeepToString())    // Çok boyutlu Array' leri String halinde göstermek için kullanılır.
 
-    // Aynı zamanda Array'ler üst class'ları yerine atanamazlar (invariant)
+    // Aynı zamanda Array'ler üst class'ları yerine atanamazlar (invariant).
+    // Örneğin Number bir array'i Int bir array'e eşitleyemeyiz.
     val arrayOfString: Array<String> = arrayOf("V1", "V2")
     //val arrayOfAny: Array<Any> = arrayOfString    // Hata
     val arrayOfAny2: Array<Any> = arrayOf("V1", "V2")
+
+    val arrayOfInt: Array<Int> = arrayOf(1, 2, 3)
+    //val arrayOfNumber: Array<Number> = arrayOfInt     // Hata
 
     /**
      *      vararg kelimsei ile istediğimiz sayıda parametreyi kabul edebiliriz.
      *      Eğer vararg'a denk gelecek şekilde bir array kullanmak istiyorsak "spread" "*" operatörü kullanırız.
      *      Spread operatorü verdiğiniz array'in elemanlarının her birini bir variable olacak şekilde bir parametre olarak passlar.
-     *
      */
     val lettersArray = arrayOf("c", "d")
     // Kendi yazdığımız fonksiyon

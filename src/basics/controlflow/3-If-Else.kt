@@ -10,7 +10,7 @@ fun main() {
      *
      *      If - Else case'lerin state ve expression olmak üzere 2 kullanımı vardır;
      *      State -> sadece if else kullanılarak şartlı şartlı durumlarımızı kodlamak
-     *      Expression -> bir value'ya değer olarak eşitliğin karşı tarafına if else kodlarını yazmaktır. Burada fi else
+     *      Expression -> bir value'ya değer olarak eşitliğin karşı tarafına if else kodlarını yazmaktır. Burada if else
      *                    case'leri için yazılmış parantezlerin son satırı value olarka alınır.
      */
 

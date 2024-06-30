@@ -45,7 +45,7 @@ fun main() {
     println("\n-----------------")
 
     /**
-     *      return kullanarak ilgili şart sağlanırsaü donguden çıkabilirsiniz.
+     *      return kullanarak ilgili şart sağlanırsa donguden çıkabilirsiniz.
      *      continue kullanarak ilgili şart sağlanırsa, dongu o değeri atlayarak devam eder.
      *      break kullanarak ilgili şart sağlanınca döngüden çıkabilirsiniz.
      */

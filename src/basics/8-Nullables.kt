@@ -10,7 +10,7 @@ fun main() {
     val name: String? = null
     val age: Int? = null
 
-    val number = null   // val number: Nothing? = null a karşılık gelir
+    val number: Nothing? = null   // val number: Nothing? = null a karşılık gelir
 
     var result: Int? = 0
     result?.plus(123)   // Eğer null değilse işlemi gerçekleştirir
@@ -22,10 +22,10 @@ fun main() {
      *  olacaktır
      */
 
-    result!!.plus(500)
-    result.plus(500)    // Üstte kesinlikle null değil dediğimiz için !! veya ? kullanmaya gerek yok
     /**
      *  Nullable bir değer !! ile kullanımışsa, kullanıldığı yerden sonra herhangi bir yerde tekrardan !! veya ?
      *  kullanmamıza gerek kalmaz. Bu özelliğe SMART CASE denir.
      */
+    result!!.plus(500)
+    result.plus(500)    // Üstte kesinlikle null değil dediğimiz için !! veya ? kullanmaya gerek yok
 }
