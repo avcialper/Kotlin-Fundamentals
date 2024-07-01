@@ -31,6 +31,13 @@ Burada `availableSpace` olarak tanımlanan değer `val`, burada sınıfın deği
 oluşturmak
 daha maliyetlidir. Çünkü değerler if condition ile kontrol edilirler.
 
+Kotlin' de bir değişken oluşturmak aslında direkt olarak değişkeni oluşturmak değildir.
+Kodların Java' ya dönüşütürülmüş hali incelenirse aslında yine bir private değişken oluşturulduğu ama bu değişkenler
+için getter ve setter methodlarının yazıldığını görürür. val ile var arasında bu getter ve setter oluşturmada farklılık
+bulunmaktadır. var değişkenlerd hem get hemde set methodları oluşturulur ama val değişkenlerde sadece get methodu
+oluşturulur.
+Bu methodlar publictir.
+
 Kotlin’de `type inference` vardır, yani başlangıçta tür belirtilmese bile otomatik olarak tür çıkarımı yapılır.
 
 Bir var değişkeni val olarak kullanmak istersek değişkenin setter'ını **private** olarak ayarlamamız yeterli olur.

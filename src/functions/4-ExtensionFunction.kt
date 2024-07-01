@@ -62,6 +62,11 @@ fun main() {
      *
      *      Bu extension function sadece bu class için geçerlidir.
      */
+
+
+    val s = Shape()
+    println(s.type)
+    // s.type = "asd"   // sürekli kendini çaığırır ve uygulama crash yer.
 }
 
 fun normalPrint(number: Number) {
@@ -104,7 +109,7 @@ fun ExtClass.printName() {
 }
 
 open class Shape() {
-    var intNumber = 0
+    var intNumber = 10
 
     open fun Int.extToString() {
 
@@ -130,18 +135,16 @@ open class Shape() {
  *
  *      Property aslında bir fonksiyondur. Ama backing field'i olmayan bir fonksiyon olarak extend edilebilir. ??!!
  */
-/*
 var Shape.type: String
-    get() = type
-    set(value) {
+    get() = intNumber.toString()
+    set(value) {    //  Sınıfın yapısını değiştirir. Bu extension property' nin amacına ve yapısına aykırıdır.
         type = value
     }
-*/
 
 // Bu iki fonksiyon yukarıdaki kullanıma karşılık gelmektedir.
 /*
 fun Shape.getType(): String {
-    return type
+    return intNumber.toString()
 }
 
 fun Shape.setType(type: String) {

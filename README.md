@@ -28,3 +28,7 @@
     * [Function Scope](./src/functions/3-FunctionScope.kt)
     * [Extension Function](./src/functions/4-ExtensionFunction.kt)
     * [Higher Order Function](./src/functions/5-HigherOrderFunction.kt)
+    * [inline noinline crossinline](./src/functions/6-InlineNoInlineCrossInline.kt)
+5. Classes
+    * [Fundamentals](./src/classes/Fundamentals.kt)
+    * [Visibility Modifiers](./src/classes/VisibilityModifiers.kt)
