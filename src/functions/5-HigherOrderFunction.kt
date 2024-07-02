@@ -34,6 +34,11 @@ fun main() {
      *          }
      *
      *      }
+     *
+     *      Higher Order Function ile bir sınıf fonksiyonu içerisinde farklı bir sınıfın değişkenlerini güncelleyebiliyoruz.
+     *      Örnek olarak A sınıfı içerisinde B sınıfındaki bir HOF' u çağırayım. Burada parametre olarak tanımlanan
+     *      fonksiyonun body'si A sınıfı içerisinde olduğu için aslında B sınıfı içerisindeki bir fonksiyon ile A sınıfı
+     *      içerisinde değişiklik yapabiliyor hale geliriz.
      */
 
     //  Higher Order Function' lar için fonksiyon tanımlamanın 3 yolu vardır.
