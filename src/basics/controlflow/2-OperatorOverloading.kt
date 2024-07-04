@@ -2,6 +2,10 @@ package basics.controlflow
 
 data class PairNumber(val numberOne: Int, val numberTwo: Int) {
 
+    /**
+     *      Overload edilen operator function' lar anlamının dışında işlem yapmamalılar.
+     *      Anlam özelliklerini kaybetmemeliler.
+     */
     operator fun minus(pairNumber: PairNumber): PairNumber {
 
         val localNumberOne = numberOne + pairNumber.numberOne

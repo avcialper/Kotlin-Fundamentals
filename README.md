@@ -33,4 +33,5 @@
     * [Fundamentals](./src/classes/Fundamentals.kt)
     * [Visibility Modifiers](./src/classes/VisibilityModifiers.kt)
     * [Encapsulation](./src/classes/Encapsulation.kt)
-    * [Inheritance](./src/classes/Inheritance.kt)
+    * [Inheritance And Polymorphism](./src/classes/Inheritance.kt)
+    * [Properties And Backing Field](./src/classes/Properties.kt)

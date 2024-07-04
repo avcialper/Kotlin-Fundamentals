@@ -17,6 +17,9 @@ class Turtle constructor(mName: String = "Tosbik") {
     var isMarried: Boolean = false
     var name: String = "turtle name"
 
+    // Bu şekil property atamaları ve init bloğu işlemleri sırası yazım sırasına göredir.
+    val lowerCaseName: String = mName.lowercase().also { println("property assignment") }
+
     /*
         Primary Constructor' ın body' si. Class' tan nesne oluşturulunca çalışan ilk blok.
         Eğer biz bir primary constructor yazmazsak arka planda otomatik olarak boş bir primary constructor oluşturulur.
@@ -27,6 +30,8 @@ class Turtle constructor(mName: String = "Tosbik") {
         println("primary constructor body")
         name = mName
     }
+
+    var isMarriedToString = isMarried.toString().also { println("isMarried to string") }
 
     /*
         Secondary Constructor. Bu constructor' ı oluşturduğumu zaman this() içerisine primary constructor' ın aldığı
@@ -59,13 +64,15 @@ class Turtle constructor(mName: String = "Tosbik") {
 
 /**
  *      Primary Constructor içerisine alınan parametrelere val veya var keyword' leri verilirse, bu değişkenler
- *      bu class' ın bir üye değişkeni gibi davranır. Bu keyword' ler verilmezse değişkenlere sadece init bloğu
- *      içerisinde erişilebilir.
+ *      bu class' ın bir üye değişkeni gibi davranır. Bu keyword' ler verilmezse değişkenlere ya init bloğu içerisinde
+ *      ya da class property' lerine değer ataması yaparken kullanabiliriz (name ve surname' i birşeltirip fullName
+ *      şeklinde bir property tanımlamak gibi). Ama oluşturduğumu üye fonksiyonlarımız içerisinde bu constructor
+ *      parametrelerine erişemeyiz.
  *
  *      Yani class içerisinde herhangi bir yerde bu değişkenleri kullanmak istersek val veya var keyword' ü ile
  *      tanımlama yapmamız gerekir.
  *
- *      Eğer val veya var yaılmazsa constructor' da tanımlanan değerler, bu class' tan oluşturulan nesnelerde de
+ *      Eğer val veya var yazılmazsa constructor' da tanımlanan değerler, bu class' tan oluşturulan nesnelerde de
  *      kullanılamaz.
  *      val user = User(name = "John", surname = "Doe")
  *      user.name   // Erişmek için name değerinin val veya var olması gerekir.
@@ -85,12 +92,25 @@ class User(val name: String, var surname: String) {
 
 }
 
+/**
+ *  Primary constructor' ını private yaparsak aslında erişilemez bir sınıf oluşturmuz oluyoruz.
+ *  NonCreatableClass' için secondary constructor tanımlamamış olsaydık bu class' tan bir nesne oluşturamazdık.
+ *
+ *  Bir class' ı abstract yapmadan nesnesinin oluşturulmasını engeller (secondary constructor' da tanımlanmamalı).
+ */
+class NonCreatableClass private constructor() {
+    constructor(name: String) : this() {
+        println("Name: $name")
+    }
+}
+
 fun main() {
     val turtleOne: Turtle = Turtle()
     val turtleTwo: Turtle = Turtle("Donatello")
     val turtleTree: Turtle = Turtle("Donatello", true)
     turtleOne.walk()
 
+    val nonCreatableClass = NonCreatableClass("john")
     /**
      *      Kotlinde class' lardaki constructor yapısı nasıldır?
      *          - Kotlinde iki farklı constructor vardır. Primary ve secondary.

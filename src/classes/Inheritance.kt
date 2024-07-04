@@ -43,11 +43,7 @@ open class Animal(open var name: String, var origin: String) {
  */
 
 class Dog(name: String, origin: String) : Animal(name, origin) {
-    override var name: String
-        get() = super.name
-        set(value) {
-            super.name = value
-        }
+    override var name: String = "dog name"
 
     override fun makASound(): String {
         return "hav hav"
@@ -91,17 +87,38 @@ class Another() {
  *  gereksinimlerine göre yeniden tanımlanabilir (override edilebilir).
  *
  *  Dynamic polymorphism;
- *      - superclass' ın override edilebilir değişken ve fonksiyonlarının subclass' larda override edilmesi ve
- *      subclass' a uygun olarak yeniden yapılandırılmasıdır.
+ *      - superclass' ın override fonksiyonlarının subclass' larda override edilmesi ve
+ *      subclass' a uygun olarak yeniden yapılandırılmasıdır. Bu tür polymorphism' e Runtime Polymorphism de denilir.
+ *      Çalışma zamanında subclass tarafından override edilen methodlar kullanılır.
  *
  *  Static polymorphism;
  *      - Aynı class' ın farklı sayıda veya aynı sayıda ama farklı türlerde parametreler alan fonksiyonlarına denilir.
- *      Bu fonksiyonlar overload edilmişlerdir.
+ *      Bu fonksiyonlar overload edilmişlerdir. Compile-Time Polymorphism de denilir. Çağırılacak fonksiyon derleme
+ *      zamanında almış olduğu parametreye göre belirlenir.
  */
 class Cat(override var name: String, origin: String) : Animal(name, origin) {
     override fun makASound(): String {
         return "miyav"
     }
+}
+
+open class High() {
+    open fun foo() {}
+}
+
+/**
+ *      Super class' tan override edilen bir fonksiyonu kendi subclass' ına kapalı yapmak istersek yani override
+ *      edilmesini engellemek istersek override fun' ın en başına final keyword' ünü eklememiz gereklidir.
+ */
+open class Medium : High() {
+    final override fun foo() {
+        super.foo()
+    }
+}
+
+open class Low : Medium() {
+    // Medium içerisindeki foo final keyword' ü ile tanımlandığı için override edilemez.
+    // final' ı kaldırmanız halinde override override edilebilir hale gelir.
 }
 
 fun main() {
