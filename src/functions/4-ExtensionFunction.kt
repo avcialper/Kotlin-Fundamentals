@@ -110,6 +110,7 @@ fun ExtClass.printName() {
 
 open class Shape() {
     var intNumber = 10
+    var shapeName = "shape"
 
     open fun Int.extToString() {
 
@@ -129,14 +130,26 @@ open class Shape() {
 /**
  *      Bir sınıfa extension function yazılabildiği gibi extension property de yazılabilir.
  *      Bunun sebebi aslında property'lerin get() ve set() methodlarından oluşmasından dolayıdır.
- *      Bu extension property'leri içerisinde field tanımlamaz.
+ *      Bu extension property'leri içerisinde field tanımlanamaz.
  *      Dolayısıyla aslında gercek anlamda bir değişken extension yapılamaz.
  *      Bu konu property vs field konusu ile beraber sınıflarda işlenirken detaylı anlatılacaktır.
  *
- *      Property aslında bir fonksiyondur. Ama backing field'i olmayan bir fonksiyon olarak extend edilebilir. ??!!
+ *      Property aslında bir fonksiyondur.
+ *      Tanımladığımız extension property' ler birer backing-filed' a sahip değillerdir. Yani memory' de bir değer
+ *      tutamazlar. Bunun yerine tanımlandıkları class özelliklerini kombinleyip yeni property' ler oluşturmamızı
+ *      sağlarlar. Bunlar aslında class' ın üye değişkenlerine bağlılardır. Kendi özel değerleri yoktur. Extension
+ *      property' lere başlangıç değerleri atanamamısının sebebi bu backing-filed değerlerine sahip olmamalarından
+ *      kaynaklanır. Aynı şekilde bir set methodu da yazamamamızın sebebi yine backing-filed' dan kaynaklanır. Biz bir
+ *      property' nin değerini güncellemek istersek propertyName = yeniDeger şeklinde bir set methodu yazamayız. Çünkü
+ *      bu method yine bu eşitlik için kendisini çağıracaktır. Bunun sonucunda StackOverFlow hatası ortaya çıkacaktır.
+ *      Onun yerine özel olarak tanımlanan filed' ı kullanmamız gerekir. filed ile fonksiyon kullanmak yerine direkt
+ *      memory' deki değeri kullanıyoruz. Bu filed değeri de sadece backing-filed' a sahip olan property' ler içerisinde
+ *      bulunur. (filed aslında backing-filed olarak adlandırılan değer)
+ *      Bunları denemek için Show Kotlin Bytecode ile incele.
+ *      classes/Properties içerisini incele!!!
  */
 var Shape.type: String
-    get() = intNumber.toString()
+    get() = this.shapeName
     set(value) {    //  Sınıfın yapısını değiştirir. Bu extension property' nin amacına ve yapısına aykırıdır.
         type = value
     }

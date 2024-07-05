@@ -36,8 +36,24 @@ class Person(var name: String, var surname: String) {
 
     /**
      *      Field property' nin arka planda sakladığı değeri doğrudan temsil eder.
-     *      Eğer biz set işemi için değişkenin kendisini kullanmak isteseydik, değişken sürekli olarak kendi set
+     *      Eğer biz set işlemi için değişkenin kendisini kullanmak isteseydik, değişken sürekli olarak kendi set
      *      fonksiyonunu çağıracaktı (recursive function). Aynı şekilde get içinde.
+     *
+     *      var propertyName: Type
+     *          get(){
+     *              /*
+     *                  Bu kullanım hatalıdır. Burada yapılan şey yine propertyName değişkeninin get fonksiyonunu
+     *                  yani şuan bulunduğu alanı çağırmasıdır. Recursive function.
+     *                  Bunun yerine filed kelimesi kullanılamlıdır. Bu arka planda değişkenin değerinin tutulduğu
+     *                  yapıdır. Eğer bunu kullanırsak direkt olarak memory' den değeri alır geliriz, onu getiren
+     *                  fonksiyonu çağırmayız.
+     *
+     *                  Aynı şey set içinde geçerlidir.
+     *                  fonksiyon içerisinde return propertyName denilirse yine set fonksiyonu çağırılır.
+     *              */
+     *              return propertyName
+     *              return filed    // doğru kullanım
+     *          }
      *
      *      Bir değişkenin backing-filed' a sahip olabilmesi için başlangıçta bir değer atanmasına ihtiyacı vardır
      */

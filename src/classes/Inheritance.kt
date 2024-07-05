@@ -10,20 +10,37 @@ package classes
  *      Class' ın property ve function' larda default olarak final' lardır. Bu fonksiyonlara subclass' lardan direkt
  *      olarak erişebiliriz ama override edemeyiz. Yani class' a özel tanımalamar yapamayız. Bunu yapabilmek için
  *      open keyword' ü ile tanımlamamız gerekmetedir.
+ *
+ *      Default olarak final ile tanımlanmış olmaları bu değişkenlerin fonksiyonlarının ve üye fonksiyonlarun arka
+ *      planda final keyword' ü ile tanımlanmalarına sebep olur. final keyword' üne sahip fonksiyonlar subclass' lar
+ *      tarafından kullanılabilirler ama override edilemezler.
  */
 open class Animal(open var name: String, var origin: String) {
     final var feetCount: Int = 4
     var tailShape: String = "oval"
 
+    // arka planda public olarak tanımlı
     open fun makASound(): String {
         return ""
     }
 
-    fun eat() {
+    // arka planda private final olarak tanımlı
+    private fun eat() {
 
     }
 
+    // arka planda public final olarak tanımlı
     fun walk() {
+
+    }
+
+    /**
+     *      Open function' lar parametre alabilirler. Fonsiyonun override edildiği yerlerde de bu parametreler
+     *      zorunlu olarak tanımlanmalılar.
+     *      Parametre default değer alabilir. Override edildiği yerde bu değerlere default değer veremeyiz. Default
+     *      değer miras alınan fonksiyonun yapısına aykırı olabilir.
+     */
+    open fun foo(value: String = "foo") {
 
     }
 
@@ -61,6 +78,10 @@ class Dog(name: String, origin: String) : Animal(name, origin) {
 
     fun call(another: Another) {
         another.boo()
+    }
+
+    override fun foo(value: String) {
+
     }
 }
 

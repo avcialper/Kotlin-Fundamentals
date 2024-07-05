@@ -35,3 +35,5 @@
     * [Encapsulation](./src/classes/Encapsulation.kt)
     * [Inheritance And Polymorphism](./src/classes/Inheritance.kt)
     * [Properties And Backing Field](./src/classes/Properties.kt)
+    * [Abstract](./src/classes/Abstract.kt)
+    * [Interfaces](./src/classes/Interfaces.kt)
