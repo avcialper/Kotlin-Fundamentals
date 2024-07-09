@@ -39,6 +39,7 @@ class Turtle constructor(mName: String = "Tosbik") {
         zorunda.
         Bu constructor çalıştığı zaman init bloğu da çalışır. Yani primary constructor da çalışır. Primary constructor,
         secondary constructor dan önce çalışır.
+        Secondary constructor parametrelerine val/var yazılamaz.
      */
     constructor(mName: String, mIsMarried: Boolean) : this(mName) {
         isMarried = mIsMarried

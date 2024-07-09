@@ -37,3 +37,4 @@
     * [Properties And Backing Field](./src/classes/Properties.kt)
     * [Abstract](./src/classes/Abstract.kt)
     * [Interfaces](./src/classes/Interfaces.kt)
+    * [Data Class](./src/classes/DataClass.kt)

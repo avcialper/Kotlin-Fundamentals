@@ -67,15 +67,25 @@ class DelegatingTextWatcher : TextWatcher {
  *      override edebiliyorduk. Override ettiğimiz property veya function' ın önüne final keyword' ünü koyduğumuz zaman
  *      artık bu class' tan miras alan hiçbir class bu property/function 'ı override edemez hale geliyordu. Ama interface
  *      için böyle bir şey yapamıyoruz. Interface içerisinde final keyword' ü kullanımı yasaktır.
- *
- *      Abstract bir class' a interface implement edilirse yine interface implement etme gibi davranır. Yani override
- *      etme zorunluluğu bulunmaz.
  */
 interface ChildInterface : TextWatcher {
     fun foo(): String
 
     // override edildiği için bir class' a override zorunluluğu kaldırıldı.
     override fun beforeTextChanged(text: String) {}
+}
+
+/**
+ *      Abstract bir class' a interface implement edilirse yine interface implement etme gibi davranır. Yani override
+ *      etme zorunluluğu bulunmaz.
+ *      Ama burada söyle farklı bir durum var; eğer biz bir değişkeni/fonksiyonu override eder ve final keyword' ü ile
+ *      tanımlarsak bu class' ı miras alan diğer class' lar override edilen bu değişkeni/fonksiyonu override edemez.
+ *      Aynı bir abstract class' ı miras alan başka bir abstract class' taki kullanım gibi.
+ */
+abstract class Coo : TextWatcher {
+    final override fun onTextChanged(text: String) {
+        TODO("Not yet implemented")
+    }
 }
 
 class InterfaceClass() : ChildInterface {
@@ -87,6 +97,23 @@ class InterfaceClass() : ChildInterface {
         get() = super.prop
 
     override fun onTextChanged(text: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun afterTextChanged(text: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun funWithBody() {
+        super.funWithBody()
+    }
+}
+
+class ChildOfCoo() : Coo() {
+    override val prop: Int
+        get() = super.prop
+
+    override fun beforeTextChanged(text: String) {
         TODO("Not yet implemented")
     }
 
