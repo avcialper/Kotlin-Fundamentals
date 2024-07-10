@@ -44,7 +44,10 @@ data class DataClass(val name: String, val type: String, val origin: String) {
 fun main() {
     val dc = DataClass("John", "dead body", "Unknown")
     val dc2 = dc.copy("Jane")       // İstenilen parametreleri değiştirilerek kopyalanabilir.
-    val (name, type, origin) = dc       // Destructuring declaration
+    val (name, type, origin) = dc       // Destructuring declaration, bu işlem içerisinde aşağıdaki işlem gerçekleşir.
+    val name2 = dc2.component1()        // name değerini almanın bir diğer yolu.
+    val type2 = dc2.component2()
+    val origin2 = dc2.component3()
     println(dc)     // sex parametresi ekrana yazılmaz.
     println("name: $name, type: $type, origin: $origin")
 }
