@@ -38,3 +38,4 @@
     * [Abstract](./src/classes/Abstract.kt)
     * [Interfaces](./src/classes/Interfaces.kt)
     * [Data Class](./src/classes/DataClass.kt)
+    * [Enum Class](./src/classes/Enum.kt)
