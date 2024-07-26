@@ -40,3 +40,4 @@
     * [Data Class](./src/classes/DataClass.kt)
     * [Enum Class](./src/classes/EnumClass.kt)
     * [Sealed Class](./src/classes/SealedClass.kt)
+    * [Generics](src/classes/generics/GenericsInKotlin.kt)

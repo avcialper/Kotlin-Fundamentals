@@ -1,7 +1,11 @@
 package classes
 
 /**
- *      gruplanabilen class' lar için kullanılır.
+ *      gruplanabilen class' lar için kullanılır. class hiyerarşisini sağlamak için kullanılırlar.
+ *
+ *      Sealed sınıflar, sınıf hiyerarşilerinizin kontrollü kalıtımını sağlar. sealed bir sınıfın tüm
+ *      doğrudan alt sınıfları derleme zamanında bilinir. sealed sınıfın tanımlandığı modül ve paket dışında başka
+ *      hiçbir alt sınıf görünemez.
  *
  *      visibility modifier kullanılabilir.
  *      primary ve secondary constructor tanımlanabilir.
@@ -26,7 +30,7 @@ package classes
  *      subclass' lar static değillerdir, nested class' lardır (abstract, open vb. yapılabilirler). Bu yüzden
  *      nesnelerinin oluşturulması gerekmektedir.
  *
- *      subclass' lar interface implement edebilirler.
+ *      subclass' lar özel interface implement edebilirler.
  *
  *      sealed class' lar aynı module veya package içerisinde geçerlidirler, farklı module' ler tarafından görünmezler.
  *
