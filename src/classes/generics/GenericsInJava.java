@@ -1,7 +1,6 @@
 package classes.generics;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -15,21 +14,21 @@ public class GenericsInJava {
         List<String> strings = new ArrayList<String>();
 
         //  compile time hatası alırız.  type mismatch
-        List<Object> objects = strings;
+        //  List<Object> objects = strings;
 
         //  Eğer hata almasaydık, int bir değeri string bir list' e atayabilirdik çünkü arayüzü object olacaktı.
         //  Her tipi kabul edebilecekti.
-        objects.add(1);
+        // objects.add(1);
 
         //  Sonrasında string list' ten eleman alırken aslında int alacaktık ve bunu string değişkene vermeye çalışacaktık.
         //  Bu durumda da ClassCastException alırdık. Integer can not cas to String gibi.
         //  Java runtime safety' yi sağlamak için bunu engelliyor.
-        String s = strings.get(0);
+        // String s = objects.get(0);
     }
 
     void copyAll(Collection<Object> to, Collection<String> from) {
         //  Collection<String>, Collection<Object>' nin bir alt tipi olmadığından bunu yapamıyoruz.
-        to.addAll(from);
+        // to.addAll(from);
     }
 
     void copyAll2(Collection2<Object> to, Collection2<String> from) {

@@ -9,6 +9,31 @@ package classes.generics
  *      Neden generic types yerine any kullanamayız?
  *          - Any ile type safety sağlanamaz. Mesela içeride matemetiksel bir işlem yapılıyor ama string verdik, burada hata
  *          oluşur.
+ *
+ *      Sorular
+ *          - neden any kullanmıyoruz
+ *              Generic type' larda gelen verinin tipini kısıtlayabiliyoruz. Any ile böyle bir kısıtlama mümkün değil.
+ *              Type safety.
+ *          - invariant nedir
+ *              Generic type, in ve out ile tanımlanmamış ise oluşturulan instance ile sadece kendi arayüzüne verilen tip
+ *              kullanılabilir. Farklı bir tipi kabul etmez. (subtype ve supertype kabul edilmez, sadece kendisi)
+ *          - covariant nedir
+ *              out keyword' ü ile tanımlanan bir class arayüzü, kendisine parametre olarak hem kendi tipi hemde subtype' ı
+ *              olan bir tipten atama ve işlemler yapılabilir.
+ *          - contravariant nedir
+ *              in keyword' ü ile tanımlanan bir class arayüzü, kendisine parametre olarak hem kendi tipi hemde supertype' ı
+ *              olan bir tipten atama ve işlemler yapılabilir.
+ *          - in out ne iş yapıyor (java wildcard tarafı da belki)
+ *              in -> contravariant
+ *              out -> covariant
+ *              wildcard Java' da in ve out' un karşılıkları olarak kullanılırlar.
+ *                  in  ->  Foo<? super E>
+ *                  out ->  Foo<? extends E> şeklinde
+ *          - star projections nedir (belki)
+ *              Foo<*, Type> Foo<Type, *> Foo<*, *> ifadeleri
+ *          - reified keyword' ü ne iş yapar (type erasure)
+ *              runtime sırasında tipini bilmediğimiz generic tiplerin nesnelerine erişmek için kullanılır. inline
+ *              keyword' ü ile tanımlanmış fonksiyonlarda kullanılabilirler.
  */
 class Box<T>(t: T) {    //  constructor' da parametre vermek için T constructor önüne konulur
     val value: T = t
@@ -147,17 +172,76 @@ fun demo() {
         herhangi bir tür) ve dönüş değeri türü Any? (yani herhangi bir tür veya nullable bir değer).
  */
 
-class Boxs<T>(val item: T)
+class Boxs<T>(val item: T) {
+
+    //  class içerisinde generic function tanımlama
+    //  class' ın tipi kullanılabilir
+    fun foo(param: T): T {
+        return param
+    }
+
+    // kendisine özgü tip alabilir
+    fun <K> boo(param: K, dumbVal: String): K {
+        return param
+    }
+
+}
 
 fun printBox(box: Boxs<*>) {
     val item = box.item
     println(item)
 }
 
-fun demo2(){
+fun demo2() {
     val stringBox = Boxs("kotlin")
     val intBox = Boxs(2017)
 
     printBox(stringBox)
     printBox(intBox)
 }
+
+//  Generic function tanımlamak için, function isminden önce type parameter eklenmeli.
+//  Parametre fonnksiyonun alacağı parametrelerin tipi veya dönüş değerinin tipi olarak kullanılabilir.
+fun <T> singletonList(item: T): List<T> {
+    // ...
+    return arrayListOf(item)
+}
+
+fun <T> T.basicToString(): String { // extension function
+    // ...
+    return "kotlin"
+}
+
+//  non-nullable generic type definition, item parametresi null değer alamaz.
+fun <T> poo(item: T & Any) {
+}
+
+/**
+ *      Type erasure
+ *
+ *      Kotlin' de generic tanımlamaların tip güvenliği compile time' da tamamlanır. Runtime' da generic türlerin
+ *      nesneleri hakkında hiçbir bilgi tutulmaz. Tür bilgileri runtime' da silinir (erased).
+ *      Örneğin, Foo<Bar> ve Foo<Baz?> nesneleri sadece Foo<*> olarak tanımlanır.
+ *
+ *      The type safety checks that Kotlin performs for generic declaration usages are done at compile time. At runtime,
+ *      the instances of generic types do not hold any information about their actual type arguments. The type
+ *      information is said to be erased.
+ *      For example, the instances of Foo<Bar> and Foo<Baz?> are erased to just Foo<*>.
+ *
+ *      Generic fonksiyonların parametreleri sadece compile time' da kontrol edilir. Fonksiyon body' si içerisinde
+ *      parametrelerin tipi kontrol edilemez ve tip dönüşümleri yapılamaz (foo as T). Ancak inline fonksiyonlar ve
+ *      reified olarak işaretlenmiş generic tipleri için type check ve type cast yapılabilir.
+ */
+
+inline fun <reified A, reified B> Pair<*, *>.asPairOf(): Pair<A, B>? {
+    if (first !is A || second !is B) return null
+    return first as A to second as B
+}
+
+val somePair: Pair<Any?, Any?> = "items" to listOf(1, 2, 3)
+
+
+val stringToSomething = somePair.asPairOf<String, Any>()
+val stringToInt = somePair.asPairOf<String, Int>()
+val stringToList = somePair.asPairOf<String, List<*>>()
+val stringToStringList = somePair.asPairOf<String, List<String>>() // Compiles but breaks type safety!
