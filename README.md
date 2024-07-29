@@ -43,3 +43,5 @@
     * [Generics](src/main/kotlin/classes/generics)
     * [Singleton Pattern](src/main/kotlin/classes/objects)
     * [Companion Object](src/main/kotlin/classes/objects/Companion.kt)
+
+[Reflection](src/main/kotlin/reflection)
