@@ -42,6 +42,8 @@ public class RetrofitInJava {
         if (newInstance == null) {
             newInstance = new RetrofitInJava();
         }
+        // Şeklinde block olarak ta tanımlanabilir
+        // synchronized (RetrofitInJava.class) {}
         return newInstance;
     }
 }

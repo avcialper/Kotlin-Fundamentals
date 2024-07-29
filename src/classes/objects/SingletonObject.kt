@@ -10,6 +10,8 @@ package classes.objects
  *      sil yapmak istemiyorsak, bu nesneyi yalnızca bir kere oluşturup üretim maliyetini azaltabiliriz.
  *      Yapı singleton formatında oluşturulduğunda, veri hafızda statik olarak saklanır. Bu durumda da Garbage Collector
  *      bu nesne üzerinde bir etki sağlamıyor. Hafızadaki kullanım ömrünü tamamen biz yönetiyoruz.
+ *
+ *      Object bir singleton class olduğu için class inherit ve interface implement edilebilir.
  */
 
 // Object declarations
