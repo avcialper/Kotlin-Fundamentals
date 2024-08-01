@@ -45,4 +45,5 @@
     * [Companion Object](src/main/kotlin/classes/objects/Companion.kt)
 
 [Reflection](src/main/kotlin/Reflection.kt) <br>
-[Scope Functions](src/main/kotlin/scopefunctions/ScopeFunctions.kt)
+[Scope Functions](src/main/kotlin/scopefunctions/ScopeFunctions.kt) <br>
+[Delegation](src/main/kotlin/Delegation.kt)
