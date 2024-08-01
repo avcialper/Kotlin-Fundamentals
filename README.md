@@ -44,5 +44,5 @@
     * [Singleton Pattern](src/main/kotlin/classes/objects)
     * [Companion Object](src/main/kotlin/classes/objects/Companion.kt)
 
-[Reflection](src/main/kotlin/Reflection.kt)
-[Scope Functions](src/main/kotlin/ScopeFunctions.kt)
+[Reflection](src/main/kotlin/Reflection.kt) <br>
+[Scope Functions](src/main/kotlin/scopefunctions/ScopeFunctions.kt)

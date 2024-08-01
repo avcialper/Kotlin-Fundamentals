@@ -1,3 +1,5 @@
+package scopefunctions
+
 // scope functions table https://kotlinlang.org/docs/scope-functions.html#function-selection
 fun main() {
 
